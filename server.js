@@ -37,29 +37,15 @@ router.get('/message', function(req, res) {
 	res.setHeader('Content-Type', 'application/json')
 	res.json({message, message});
 	message = '';
-   	//res.send(JSON.stringify({message:}));
 });
 
 router.post('/message', function(req, res) {  
 	message = req.body.DATA;
-   res.send("Metodo post");
+	res.status(200);
+	res.send('TODO OK');
 });
 
 
 app.use(router);
 
 app.listen(8080);
-/*
-var server = http.createServer(function(req, res) {
-	if(req.method == 'POST'){
-		console.log('Eso ha sido post');
-	}
-	if(req.method == 'GET'){
-		console.log('Eso ha sido GET');
-        res.writeHead(200);
-        res.end('Hola GET');
-	}
-});
-server.listen(8080);
-*/
-
