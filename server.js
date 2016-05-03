@@ -27,17 +27,21 @@ var express = require("express"),
 
 var  message = '';
 
-app.use(bodyParser.urlencoded({ extended: false }));  
+app.use(bodyParser.urlencoded({ extended: true }));  
 app.use(bodyParser.json());  
 app.use(methodOverride());
 
 var router = express.Router();
 
 router.get('/message', function(req, res) {  
-   res.send("Método get");
+	res.setHeader('Content-Type', 'application/json')
+	res.json({message, message});
+	message = '';
+   	//res.send(JSON.stringify({message:}));
 });
 
 router.post('/message', function(req, res) {  
+	message = req.body.DATA;
    res.send("Metodo post");
 });
 
